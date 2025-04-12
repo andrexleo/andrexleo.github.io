@@ -14,50 +14,49 @@
       padding: 2px;
     }
 
+    /* Header fijo */
     .containerSelector {
-      /* flex-wrap: nowrap; */
-      gap: 5px;
-      align-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       width: 100%;
       position: fixed;
       background-color: white;
+      /* Cambié de red a white para mejor estética */
       z-index: 100;
-      align-self: center;
-      padding: 5px;
-      top: 0;
-      transition: all 0.3s ease;
-      box-shadow: 0 7px 35px rgba(0, 0, 0, 0.08);
-      border-radius: 10px;
       padding: 10px;
+      top: 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 8px 8px;
     }
 
-    .itemSelector {
-      width: 250px;
-      /* Permite que todos los selects crezcan proporcionalmente */
+    /* Estilo de los select */
+    .itemSelector,
+    .selectpicker {
       min-width: 100px;
-      /* Evita que sean demasiado pequeños */
-      padding: 5px 10px;
+      padding: 8px 12px;
       font-size: 14px;
       border-radius: 5px;
       border: 1px solid #39aa35;
       background-color: #ffffff;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 7px 35px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .containerSelector6 {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    /* Personalizar las opciones del dropdown de Bootstrap Select */
+    .bootstrap-select .dropdown-menu .dropdown-item {
+      font-size: 11px !important;
+      /* Tamaño deseado para las opciones */
+      padding: 6px 12px;
+      color: #333;
     }
 
-    .itemSelector6 {
-      width: 100px;
-
-      flex-basis: 200;
+    /* Asegurar que el texto del botón (valor seleccionado) también se ajuste */
+    .bootstrap-select .btn.dropdown-toggle {
+      font-size: 14px;
+      /* Tamaño del texto seleccionado */
+      padding: 8px 12px;
     }
-
     #sucursales,
     #categorias,
     #lineas {
@@ -284,16 +283,30 @@
       }
 
       .containerSelector {
-        gap: 5px;
+        gap: 8px;
         padding: 8px;
       }
 
-      .itemSelector {
-        font-size: 0.8rem;
-        padding: 5px 7px;
-        min-width: 70px;
+      .itemSelector,
+      .selectpicker {
+        min-width: 80px;
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+
+      /* Ajustar opciones en móviles */
+      .bootstrap-select .dropdown-menu .dropdown-item {
+        font-size: 10px !important;
+        /* Ligeramente más pequeño en móviles */
+        padding: 5px 10px;
+      }
+
+      .bootstrap-select .btn.dropdown-toggle {
+        font-size: 12px;
+        padding: 6px 8px;
       }
     }
+
 
     /* Para pantallas muy pequeñas */
     @media (max-width: 360px) {
@@ -313,6 +326,18 @@
 
       .cardName {
         font-size: 0.75rem;
+      }
+
+      .itemSelector,
+      .selectpicker {
+        min-width: 70px;
+        padding: 5px 6px;
+        font-size: 11px;
+      }
+
+      .bootstrap-select .dropdown-menu .dropdown-item {
+        font-size: 9px !important;
+        padding: 4px 8px;
       }
     }
   </style>
@@ -338,17 +363,15 @@
 <body>
   <!-- Dropdowns -->
   <div class="containerSelector">
-    <div class="containerDropdown" style="width: 500px; flex-direction: row; flex-wrap: nowrap">
-      <select class="selectpicker SelectorDropdown show-tick dropup" data-width="25%" height="10%" color="black"
-        id="lineas">
+    <div class="containerDropdown" style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
+      <select class="selectpicker SelectorDropdown show-tick dropup" data-width="25%" id="lineas">
         <option value="lineas" selected="true">Línea Producto</option>
       </select>
-      <select class="selectpicker SelectorDropdown show-tick dropup" data-width="25%" height="10%" color="black"
-        id="sucursales">
+      <select class="selectpicker SelectorDropdown show-tick dropup" data-width="25%" id="sucursales">
         <option value="sucursales" selected="true">Sucursal</option>
       </select>
-      <select class="selectpicker SelectorDropdown show-tick dropup" data-width="25%" height="10%" color="black"
-        id="categorias" data-live-search="true">
+      <select class="selectpicker SelectorDropdown show-tick dropup" data-width="25%" id="categorias"
+        data-live-search="true">
         <option value="categorias" selected="true">Categoría</option>
       </select>
     </div>
