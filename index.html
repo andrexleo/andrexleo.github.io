@@ -73,66 +73,68 @@
     }
 
     /* Contenedor de las cards */
-.cardBox {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 15px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 70px; /* Ajustado para el header fijo */
-}
+    .cardBox {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px;
+      justify-content: space-between;
+      margin-top: 70px;
+      /* Espacio para el header fijo */
+    }
 
-/* Estilo de cada card */
-.card {
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px; /* Limita el ancho máximo */
-  background: #6f5fd4;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
-  color: #dfd9d9;
-  transition: transform 0.2s ease, background 0.3s ease;
-}
+    /* Estilo de cada card */
+    .card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+      /* Límite para pantallas grandes */
+      background: #6f5fd4;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      /* Sombra ligera */
+      color: #dfd9d9;
+      transition: transform 0.2s ease;
+    }
 
-.card:hover {
-  transform: translateY(-5px); /* Efecto sutil al interactuar */
-}
+    /* Efecto al tocar */
+    .card:hover {
+      transform: translateY(-3px);
+    }
 
-/* Imágenes dentro de las cards */
-.card img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-right: 10px;
-}
+    /* Imágenes dentro de las cards */
+    .card img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      margin-right: 8px;
+    }
 
-/* Números en las cards */
-.numbers {
-  font-weight: 600;
-  font-size: 1.25rem; /* Ajustado para mejor legibilidad */
-  color: white;
-  text-align: center;
-}
+    /* Números en las cards */
+    .numbers {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: white;
+      text-align: center;
+    }
 
-/* Nombre de las cards */
-.cardName {
-  font-size: 0.9rem;
-  color: rgb(191, 183, 183);
-  margin-top: 5px;
-}
+    /* Nombre de las cards */
+    .cardName {
+      font-size: 0.85rem;
+      color: rgb(191, 183, 183);
+      margin-top: 4px;
+    }
 
-/* Iconos adicionales */
-.iconBx {
-  font-size: 1.5rem;
-  color: white;
-}
+    /* Iconos adicionales */
+    .iconBx {
+      font-size: 1.4rem;
+      color: white;
+    }
 
     #tipo_reporte {
       padding: 2px;
@@ -249,63 +251,70 @@
       }
     }
 
-    /* Media queries para móviles */
-@media (max-width: 600px) {
-  .cardBox {
-    gap: 10px;
-    padding: 10px;
-    margin-top: 80px; /* Más espacio para el header */
-  }
+    /* Media query para móviles */
+    @media (max-width: 600px) {
+      .cardBox {
+        gap: 10px;
+        padding: 10px;
+        margin-top: 80px;
+        /* Más espacio para el header */
+      }
 
-  .card {
-    min-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-    max-width: none;
-    padding: 12px;
-  }
+      .card {
+        flex: 0 0 calc(50% - 5px);
+        /* Dos cards por fila, con espacio para gap */
+        min-width: 0;
+        /* Evita desbordamiento */
+        max-width: none;
+        /* Permite que se ajusten al contenedor */
+        padding: 10px;
+      }
 
-  .card img {
-    width: 32px;
-    height: 32px;
-  }
+      .card img {
+        width: 32px;
+        height: 32px;
+      }
 
-  .numbers {
-    font-size: 1.1rem;
-  }
+      .numbers {
+        font-size: 1rem;
+      }
 
-  .cardName {
-    font-size: 0.85rem;
-  }
+      .cardName {
+        font-size: 0.8rem;
+      }
 
-  .containerSelector {
-    gap: 5px;
-    padding: 8px;
-  }
+      .containerSelector {
+        gap: 5px;
+        padding: 8px;
+      }
 
-  .itemSelector {
-    font-size: 0.85rem;
-    padding: 6px 8px;
-    min-width: 80px;
-  }
-}
+      .itemSelector {
+        font-size: 0.8rem;
+        padding: 5px 7px;
+        min-width: 70px;
+      }
+    }
 
-@media (max-width: 360px) {
-  .card {
-    padding: 10px;
-  }
+    /* Para pantallas muy pequeñas */
+    @media (max-width: 360px) {
+      .card {
+        flex: 0 0 calc(50% - 4px);
+        padding: 8px;
+      }
 
-  .card img {
-    width: 28px;
-    height: 28px;
-  }
+      .card img {
+        width: 28px;
+        height: 28px;
+      }
 
-  .numbers {
-    font-size: 1rem;
-  }
+      .numbers {
+        font-size: 0.95rem;
+      }
 
-  .cardName {
-    font-size: 0.8rem;
-  }
-}
+      .cardName {
+        font-size: 0.75rem;
+      }
+    }
   </style>
   <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
